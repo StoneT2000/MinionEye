@@ -28,6 +28,7 @@ $(document).ready(function () {
     $("#band").css('height','54px');
   }
   $("#stuart")[0].checked = true;
+  $("#kevin")[0].checked = false;
   $("body").mousemove(function(e) {
     //console.log(e.pageX, e.pageY)
     var dx = e.pageX - centerX;
