@@ -1,6 +1,8 @@
 var eye_radius = 200;
 var factor = 1;
 $(document).ready(function () {
+  console.log('Minions are watching')
+  
   var cWidth = window.innerWidth;
   var cHeight = window.innerHeight;
   var centerX = cWidth/2;
