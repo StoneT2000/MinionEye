@@ -109,8 +109,8 @@ body {
   height:60px;
   top:35px;
   position: absolute;
-  width:120px;
-  margin-left:-80px;
+  width:200px;
+  margin-left:-130px;
   text-align: center;
 }
 @media only screen and (max-width:650px) {

@@ -1,5 +1,9 @@
 var eye_radius = 200;
 var factor = 1;
+var animate_eyes_interval;
+var mouse_inactivity = 0;
+var ct = 0;
+var diag_length = 0;
 $(document).ready(function () {
   console.log('Minions are watching')
   
@@ -9,6 +13,7 @@ $(document).ready(function () {
   var cHeight = window.innerHeight;
   var centerX = cWidth/2;
   var centerY = cHeight/2;
+  diag_length = Math.sqrt(cWidth*cWidth + cHeight*cHeight);
   if (cWidth < 360) {
     eye_radius = 120;
     factor = 0.6;
@@ -29,7 +34,25 @@ $(document).ready(function () {
   }
   $("#stuart")[0].checked = true;
   $("#kevin")[0].checked = false;
+  random_eye();
+  $("#animate_eyes").change(function() {
+    if ($("#animate_eyes")[0].checked) {
+      //Activate this interval if mouse is inactive
+      random_eye();
+    }
+    else {
+      clearInterval(animate_eyes_interval);
+    }
+    
+  })
+  $("#animate_eyes")[0].checked = true;
+  
+
+  
+  
+  
   $("body").mousemove(function(e) {
+    mouse_inactivity = 0;
     //console.log(e.pageX, e.pageY)
     var dx = e.pageX - centerX;
     var dy = e.pageY - centerY;
@@ -45,6 +68,7 @@ $(document).ready(function () {
     cHeight = window.innerHeight;
     centerX = cWidth/2;
     centerY = cHeight/2;
+    diag_length = Math.sqrt(cWidth*cWidth + cHeight*cHeight);
     if ($("#stuart")[0].checked == true){
       $("#eye2").css('display','none');
       $("#eye1").css('left','50%');
@@ -88,8 +112,21 @@ $(document).ready(function () {
       $("#eye2").css('left',cWidth/2 + eye_radius/2 - 10 * factor);
     }
   })
+ 
 
 })
+function random_eye(){
+  animate_eyes_interval = window.setInterval(function () {
+    if (mouse_inactivity > 0 ){
+      var angle = Math.random(0,1) * Math.PI * 2 - Math.PI;
+      var offx = Math.sin(angle);
+      var offy = -Math.cos(angle);
+      $(".eye_pupil_wrapper").css("left",(offx * Math.random(0,1)*30));
+      $(".eye_pupil_wrapper").css("top", (offy * Math.random(0,1)*30));
+    }
+    mouse_inactivity++;
+  }, 5000);
+}
 function toggleFullScreen() {
   if (!document.fullscreenElement && // alternative standard method
     !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { // current working methods
