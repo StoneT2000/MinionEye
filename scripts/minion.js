@@ -32,8 +32,8 @@ $(document).ready(function () {
     var dist = Math.sqrt(dx*dx + dy*dy)
     var offx = Math.sin(angle);
     var offy = -Math.cos(angle);
-    $(".eye_pupil_wrapper").css("left", offx* 36 * dist/centerX);
-    $(".eye_pupil_wrapper").css("top", offy* 36 * dist/centerY);
+    $(".eye_pupil_wrapper").css("left", Math.sqrt(Math.abs(offx)* 800 * dist/centerX) * Math.sign(dx));
+    $(".eye_pupil_wrapper").css("top", Math.sqrt(Math.abs(offy)* 800 * dist/centerY) * Math.sign(dy));
   })
   window.onresize = function() {
     cWidth = window.innerWidth;
