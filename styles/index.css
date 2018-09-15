@@ -113,7 +113,7 @@ body {
   margin-left:-130px;
   text-align: center;
 }
-@media only screen and (max-width:650px) {
+@media only screen and (max-width:720px) {
   #minion_options {
     top:10px;
   }
