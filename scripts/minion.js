@@ -13,19 +13,19 @@ $(document).ready(function () {
     eye_radius = 120;
     factor = 0.6;
     $(".eye_wrapper").css('transform','scale(0.6)');
-    $("#band").css('height','39.6px');
+    $("#band").css('height','32.4px');
   }
   else if (cWidth < 450) {
     eye_radius = 160;
     factor = 0.8;
     $(".eye_wrapper").css('transform','scale(0.8)');
-    $("#band").css('height','52.8px');
+    $("#band").css('height','43.2px');
   }
   else {
     eye_radius = 200;
     factor = 1;
     $(".eye_wrapper").css('transform','scale(1)');
-    $("#band").css('height','66px');
+    $("#band").css('height','54px');
   }
   $("#stuart")[0].checked = true;
   $("body").mousemove(function(e) {
@@ -57,19 +57,19 @@ $(document).ready(function () {
       eye_radius = 120;
       factor = 0.6;
       $(".eye_wrapper").css('transform','scale(0.6)');
-      $("#band").css('height','39.6px');
+      $("#band").css('height','32.4px');
     }
     else if (cWidth < 450) {
       eye_radius = 160;
       factor = 0.8;
       $(".eye_wrapper").css('transform','scale(0.8)');
-      $("#band").css('height','52.8px');
+      $("#band").css('height','43.2px');
     }
     else {
       eye_radius = 200;
       factor = 1;
       $(".eye_wrapper").css('transform','scale(1)');
-      $("#band").css('height','66px');
+      $("#band").css('height','54px');
     }
   }
   $("#stuart").change(function() {
