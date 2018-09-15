@@ -83,7 +83,7 @@ button:focus {outline:0;}
   color: RGB(26,29,32);
 }
 .footer_fascade {
-  position: absolute;
+  position: fixed;
   height:60px;
   width:100%;
   bottom:0px;
